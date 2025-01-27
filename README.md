@@ -22,58 +22,58 @@ dependencies:
 
 ## Usage
 ### Import the Package
-```
+```dart
 import 'package:flutter_presentation_display/flutter_presentation_display.dart';
 ```
 
 ### Initialize FlutterPresentationDisplay
 Create an instance of FlutterPresentationDisplay:
-```
+```dart
 final display = FlutterPresentationDisplay();
 ```
 
 ### Retrieve Displays
 Get a list of connected displays:
-```
+```dart
 List<Display>? displays = await display.getDisplays();
 ```
 Get Display Name by ID
 Retrieve the name of a display using its ID:
-```
+```dart
 String? displayName = await display.getNameByDisplayId(1);
 ```
 Get Display Name by Index
 Retrieve the name of a display using its index in the list:
-```
+```dart
 String? displayName = await display.getNameByIndex(0);
 ```
 
 ### Show and Hide Secondary Display
 Show a secondary display with a specific ID and router name:
-```
+```dart
 bool? result = await display.showSecondaryDisplay(
   displayId: 1,
   routerName: "presentation",
 );
 ```
 Hide a secondary display using its ID:
-```
+```dart
 bool? result = await display.hideSecondaryDisplay(displayId: 1);
 ```
 
 ###  Transfer Data to and from Displays
 Transfer data to the secondary (presentation) display:
-```
+```dart
 bool? result = await display.transferDataToPresentation({"key": "value"});
 ```
 Transfer data to the main display:
-```
+```dart
 bool? result = await display.transferDataToMain({"key": "value"});
 ```
 
 ### Listen to Display Connection Changes
 Listen to changes in connected displays:
-```
+```dart
 display.connectedDisplaysChangedStream.listen((int? displayId) {
   print('Connected display ID: $displayId');
 });
@@ -81,13 +81,13 @@ display.connectedDisplaysChangedStream.listen((int? displayId) {
 
 ### Listen for Data from Displays
 Listen for data sent from the secondary (presentation) display:
-```
+```dart
 display.listenDataFromPresentationDisplay((dynamic data) {
   print('Data from Presentation Display: $data');
 });
 ```
 Listen for data sent from the main display:
-```
+```dart
 display.listenDataFromMainDisplay((dynamic data) {
   print('Data from Main Display: $data');
 });
@@ -102,6 +102,3 @@ This package is based on [presentation_displays](https://github.com/VNAPNIC/pres
 [flutter_presentation_display](https://github.com/elrizwiraswara/flutter_presentation_display)  is a modified version of the original version.
 
 
-## Support
-
-<a href="https://trakteer.id/elrizwiraswara/tip" target="_blank"><img id="wse-buttons-preview" src="https://cdn.trakteer.id/images/embed/trbtn-red-6.png?date=18-11-2023" height="40" style="border:0px;height:40px;margin-top:14px" alt="Trakteer Saya"></a>
