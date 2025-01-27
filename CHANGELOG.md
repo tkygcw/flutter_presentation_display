@@ -1,3 +1,7 @@
+## 2.0.5
+
+* Add namespace to build file
+
 ## 2.0.4
 
 * Improved pub scores.
