@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentation_display_example/main_screen.dart';
-import 'package:flutter_presentation_display_example/presentation_screen.dart';
+
+import 'main_screen.dart';
+import 'presentation_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
