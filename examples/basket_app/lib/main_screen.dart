@@ -67,9 +67,6 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
   List<Product> cartItems = [];
 
-  final TextEditingController _dataToTransferController =
-      TextEditingController();
-
   dynamic dataFromPresentation;
 
   @override
@@ -297,56 +294,6 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
             ),
           );
         },
-      ),
-    );
-  }
-
-  Widget _transferData() {
-    return Padding(
-      padding: const EdgeInsets.all(18.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: _dataToTransferController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Data to transfer',
-              ),
-            ),
-          ),
-          ElevatedButton(
-            child: const Text('Transfer Data to presentation'),
-            onPressed: () async {
-              String data = _dataToTransferController.text;
-              final result =
-                  await displayManager.transferDataToPresentation(data);
-              result;
-            },
-          ),
-          const Divider(),
-        ],
-      ),
-    );
-  }
-
-  Widget _dataFromPresentation() {
-    return Padding(
-      padding: const EdgeInsets.all(18.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child:
-                Text('Data from presentation: ${dataFromPresentation ?? '-'}'),
-          ),
-          const Divider(),
-        ],
       ),
     );
   }

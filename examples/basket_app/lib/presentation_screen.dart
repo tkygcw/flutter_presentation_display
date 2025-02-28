@@ -1,6 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_presentation_display/flutter_presentation_display.dart';
-import 'dart:convert';
 
 /// UI of Presentation display
 class PresentationScreen extends StatefulWidget {
@@ -33,7 +34,7 @@ class _PresentationScreenState extends State<PresentationScreen>
         if (data is List) {
           final oldLength = cartItems.length;
           setState(() {
-            cartItems = (data as List).map<Map<String, dynamic>>((item) {
+            cartItems = (data).map<Map<String, dynamic>>((item) {
               return Map<String, dynamic>.from(item);
             }).toList();
 
