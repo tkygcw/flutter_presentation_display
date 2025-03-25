@@ -15,8 +15,7 @@ class _MainScreenState extends State<MainScreen> {
   List<Display?> displays = [];
 
   final TextEditingController _indexToShareController = TextEditingController();
-  final TextEditingController _dataToTransferController =
-      TextEditingController();
+  final TextEditingController _dataToTransferController = TextEditingController();
 
   final TextEditingController _nameOfIdController = TextEditingController();
   String _nameOfId = "";
@@ -92,9 +91,7 @@ class _MainScreenState extends State<MainScreen> {
             itemBuilder: (BuildContext context, int index) {
               return SizedBox(
                 height: 50,
-                child: Center(
-                    child: Text(
-                        ' ${displays[index]?.displayId} ${displays[index]?.name}')),
+                child: Center(child: Text(' ${displays[index]?.displayId} ${displays[index]?.name}')),
               );
             },
           ),
@@ -128,8 +125,7 @@ class _MainScreenState extends State<MainScreen> {
               if (displayId != null) {
                 for (final display in displays) {
                   if (display?.displayId == displayId) {
-                    displayManager.showSecondaryDisplay(
-                        displayId: displayId, routerName: "presentation");
+                    displayManager.showSecondaryDisplay(displayId: displayId, routerName: "presentation");
                   }
                 }
               }
@@ -216,8 +212,7 @@ class _MainScreenState extends State<MainScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child:
-                Text('Data from presentation: ${dataFromPresentation ?? '-'}'),
+            child: Text('Data from presentation: ${dataFromPresentation ?? '-'}'),
           ),
           const Divider(),
         ],
@@ -247,8 +242,7 @@ class _MainScreenState extends State<MainScreen> {
             onPressed: () async {
               int? id = int.tryParse(_nameOfIdController.text);
               if (id != null) {
-                final value = await displayManager
-                    .getNameByDisplayId(displays[id]?.displayId ?? -1);
+                final value = await displayManager.getNameByDisplayId(id);
                 _nameOfId = value ?? "";
                 setState(() {});
               }
