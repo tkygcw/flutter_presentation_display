@@ -13,12 +13,11 @@ class _PresentationScreenState extends State<PresentationScreen> {
   String dataFromMain = "";
   FlutterPresentationDisplay displayManager = FlutterPresentationDisplay();
 
-  final TextEditingController _dataToTransferController =
-      TextEditingController();
+  final TextEditingController _dataToTransferController = TextEditingController();
 
   @override
   void initState() {
-    displayManager.listenDataFromPresentationDisplay(onDataReceived);
+    displayManager.listenDataFromMainDisplay(onDataReceived);
     super.initState();
   }
 
