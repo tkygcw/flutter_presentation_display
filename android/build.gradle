@@ -1,23 +1,22 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 group 'com.elriztechnology.flutter_presentation_display'
 version '1.0-SNAPSHOT'
 
 android {
     namespace 'com.elriztechnology.flutter_presentation_display'
-
     compileSdk 34
 
     defaultConfig {
         minSdk 21
-
     }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = '11'
     }
@@ -26,8 +25,16 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
-    lint {
-        disable += ['InvalidPackage']
+    lint { disable += ['InvalidPackage'] }
+}
+
+kotlin {
+    jvmToolchain(11)
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions {
+        jvmTarget = "11"
     }
 }
 
